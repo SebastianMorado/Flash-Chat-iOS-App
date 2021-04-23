@@ -7,15 +7,34 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
     
+    var errorText : String = ""
 
     @IBAction func loginPressed(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "LoginToChat", sender: self)
+        if let email = emailTextfield.text, let password = passwordTextfield.text {
+            Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+                if let e = error {
+                    self.errorText = e.localizedDescription
+                    self.performSegue(withIdentifier: "showPopup", sender: self)
+                } else {
+                    self.performSegue(withIdentifier: "LoginToChat", sender: self)
+                }
+            }
+        }
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showPopup" {
+            let destinationVC = segue.destination as! PopUpViewController
+            destinationVC.displayText = errorText
+        }
     }
     
 }

@@ -170,11 +170,68 @@
                         <outlet property="emailTextfield" destination="u72-XV-6FN" id="Nfc-8N-TNr"/>
                         <outlet property="passwordTextfield" destination="hLb-P9-NkF" id="uaM-fo-m8M"/>
                         <segue destination="lwd-AH-u8E" kind="show" identifier="RegisterToChat" id="AbE-UN-6CK"/>
+                        <segue destination="6G2-lE-4Rg" kind="presentation" identifier="showPopup" animates="NO" modalPresentationStyle="overCurrentContext" id="mYA-KY-oKT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1857.9710144927537" y="-295.3125"/>
+        </scene>
+        <!--Pop Up View Controller-->
+        <scene sceneID="0jf-US-Z8h">
+            <objects>
+                <viewController id="6G2-lE-4Rg" customClass="PopUpViewController" customModule="Flash_Chat_iOS13" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="j9b-ro-MFu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="KpS-tr-EBK">
+                                <rect key="frame" x="87" y="368" width="240" height="160"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VTx-1x-LPL">
+                                        <rect key="frame" x="105" y="112" width="30" height="38"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                        <state key="normal" title="OK">
+                                            <color key="titleColor" name="BrandBlue"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="okPressed:" destination="6G2-lE-4Rg" eventType="touchUpInside" id="bmb-4H-NA8"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIe-zw-5BA">
+                                        <rect key="frame" x="15" y="21" width="210" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="BrandLightPurple"/>
+                                <constraints>
+                                    <constraint firstItem="jIe-zw-5BA" firstAttribute="top" secondItem="KpS-tr-EBK" secondAttribute="top" constant="21" id="BmQ-Hg-7cb"/>
+                                    <constraint firstAttribute="bottom" secondItem="VTx-1x-LPL" secondAttribute="bottom" constant="10" id="MBx-86-5Mb"/>
+                                    <constraint firstAttribute="trailing" secondItem="jIe-zw-5BA" secondAttribute="trailing" constant="15" id="NvZ-vZ-vg4"/>
+                                    <constraint firstItem="VTx-1x-LPL" firstAttribute="centerX" secondItem="KpS-tr-EBK" secondAttribute="centerX" id="pzo-wf-5zD"/>
+                                    <constraint firstItem="jIe-zw-5BA" firstAttribute="leading" secondItem="KpS-tr-EBK" secondAttribute="leading" constant="15" id="uJB-ou-K6H"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ROz-sv-fog"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="KpS-tr-EBK" firstAttribute="leading" secondItem="ROz-sv-fog" secondAttribute="leading" constant="87" id="6tL-A5-yuG"/>
+                            <constraint firstItem="KpS-tr-EBK" firstAttribute="centerX" secondItem="j9b-ro-MFu" secondAttribute="centerX" id="HtH-g1-zQm"/>
+                            <constraint firstItem="KpS-tr-EBK" firstAttribute="top" secondItem="ROz-sv-fog" secondAttribute="top" constant="324" id="ImB-t1-jgt"/>
+                            <constraint firstItem="KpS-tr-EBK" firstAttribute="centerY" secondItem="j9b-ro-MFu" secondAttribute="centerY" id="ugZ-LW-Cpl"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="sR3-02-7vI"/>
+                    <connections>
+                        <outlet property="popupLabel" destination="jIe-zw-5BA" id="c5X-Gl-MXb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sh0-mR-6MQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4151" y="135"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="Hzg-jR-yiY">
@@ -265,6 +322,7 @@
                         <outlet property="emailTextfield" destination="F21-w0-z4z" id="YUG-Hl-Rxj"/>
                         <outlet property="passwordTextfield" destination="abR-gz-opL" id="xCU-X2-hrx"/>
                         <segue destination="lwd-AH-u8E" kind="show" identifier="LoginToChat" id="FHP-Hh-Wpu"/>
+                        <segue destination="6G2-lE-4Rg" kind="presentation" identifier="showPopup" animates="NO" modalPresentationStyle="overCurrentContext" id="RJR-V2-Seg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XcE-Gk-YZg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -343,10 +401,17 @@
                             <constraint firstItem="S6L-hg-cne" firstAttribute="top" secondItem="6YX-ca-E8f" secondAttribute="top" id="sQt-L5-8LV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Q5u-eL-Bgp"/>
+                    <navigationItem key="navigationItem" id="Q5u-eL-Bgp">
+                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="HEw-Jj-tg7">
+                            <connections>
+                                <action selector="logOutPressed:" destination="lwd-AH-u8E" id="nsY-WW-2fg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="messageTextfield" destination="UWj-GQ-Vph" id="INS-Xk-EA9"/>
                         <outlet property="tableView" destination="S6L-hg-cne" id="dTJ-K9-WAe"/>
+                        <segue destination="6G2-lE-4Rg" kind="presentation" identifier="showPopup" animates="NO" modalPresentationStyle="overCurrentContext" id="Lzj-fz-DFZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jFP-qE-CyQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -379,6 +444,7 @@
     </designables>
     <inferredMetricsTieBreakers>
         <segue reference="FHP-Hh-Wpu"/>
+        <segue reference="RJR-V2-Seg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="paperplane.fill" catalog="system" width="128" height="118"/>
