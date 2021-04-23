@@ -21,9 +21,9 @@ class RegisterViewController: UIViewController {
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                 if let e = error {
                     self.errorText = e.localizedDescription
-                    self.performSegue(withIdentifier: "showPopup", sender: self)
+                    self.performSegue(withIdentifier: K.popupSegue, sender: self)
                 } else {
-                    self.performSegue(withIdentifier: "RegisterToChat", sender: self)
+                    self.performSegue(withIdentifier: K.registerSegue, sender: self)
                 }
                 
             }
@@ -31,7 +31,7 @@ class RegisterViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showPopup" {
+        if segue.identifier == K.popupSegue {
             let destinationVC = segue.destination as! PopUpViewController
             destinationVC.displayText = errorText
         }
