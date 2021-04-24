@@ -16,10 +16,12 @@ class PopUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
         popupLabel.text = displayText
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
+    }
 
     @IBAction func okPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
